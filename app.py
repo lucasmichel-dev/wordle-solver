@@ -21,16 +21,12 @@ driver.find_element(By.ID, "pz-gdpr-btn-accept").click()
 time.sleep(1)
 driver.find_element(By.CLASS_NAME, "Modal-module_closeIcon__b4z74").click()
 time.sleep(1)
-# div = driver.find_elements(By.CLASS_NAME, "Tile-module_tile__3ayIZ")
 div = driver.find_elements(By.CLASS_NAME, "Tile-module_tile__3ayIZ")
 time.sleep(1)
 possible.append("loath")
-# main()
 for i in range(6):
     current_word = possible[0]
     driver.find_element(By.TAG_NAME, "body").send_keys(current_word, Keys.ENTER)
-    # time.sleep(4)
-    # time.sleep(3)
     time.sleep(3)
     print(i)
     start = (i * 5)
@@ -62,50 +58,11 @@ for i in range(6):
     main()
     if len(possible) == 1:
         break
-# divs = div.find_elements(By.TAG_NAME, "div")
-# for i in range(6):
-#     driver.find_element(By.TAG_NAME, "body").send_keys(current_word, Keys.ENTER)
-#     main()
-#     time.sleep(5)
-#     # print(possible)
-#     for j in range(5):
-#         state = div[j + i].get_attribute("data-state")
-#         letter = div[j + i].text.lower()
-#         print(state, letter, j)
-#         if state == "present":
-#             if letter not in lettersIn:
-#                 lettersIn.append(letter)
-#             # if letter not in known_to_be_wrong[j - (5 * i)]:
-#             if letter not in known_to_be_wrong[j]:
-#                 known_to_be_wrong[j].append(letter)
-#         elif state == "absent":
-#             if letter not in lettersNotIn:
-#                 lettersNotIn.append(letter)
-#             if letter not in known_to_be_wrong[j]:
-#                 known_to_be_wrong[j].append(letter)
-#         elif state == "correct":
-#             if letter not in lettersIn:
-#                 lettersIn.append(letter)
-#             known_to_be_right[j] = letter
 
 
-print(lettersIn)
-print(lettersNotIn)
-print(known_to_be_right)
-print(known_to_be_wrong)
-
-
-# html_str = div.get_attribute('innerHTML')
-# bs = BeautifulSoup(html_str, 'lxml')
-
-# print(div)
-
-# driver.find_element(By.NAME, "q").send_keys("javatpoint")
-# time.sleep(1)
-# driver.find_element(By.NAME, "btnK").send_keys(Keys.ENTER)
 time.sleep(30)
 driver.close()
 
-print("sample test case successfully completed")
+print("wordle solving successfully completed")
 
 
