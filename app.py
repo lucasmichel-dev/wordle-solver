@@ -28,12 +28,8 @@ for i in range(6):
     current_word = possible[0]
     driver.find_element(By.TAG_NAME, "body").send_keys(current_word, Keys.ENTER)
     time.sleep(3)
-    print(i)
-    start = (i * 5)
-    end = (i * 5 + 5)
-    print(start, end)
     count = 0
-    for element in div[start:end]:
+    for element in div[(i * 5):(i * 5 + 5)]:
         time.sleep(1)
         state = element.get_attribute("data-state")
         letter = element.text.lower()
@@ -46,7 +42,7 @@ for i in range(6):
             if letter not in known_to_be_wrong[count]:
                 known_to_be_wrong[count].append(letter)
         elif state == "absent":
-            if letter not in lettersNotIn:
+            if letter not in lettersNotIn and letter not in known_to_be_right:
                 lettersNotIn.append(letter)
             if letter not in known_to_be_wrong[count]:
                 known_to_be_wrong[count].append(letter)
