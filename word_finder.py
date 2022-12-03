@@ -1,9 +1,7 @@
-import json
-import string
+from english_words import english_words_lower_alpha_set
 
-f = open('words.json')
+five_letter_words = [word for word in english_words_lower_alpha_set if len(word) == 5]
 
-words = json.load(f)
 lettersNotIn = []
 lettersIn = []
 known_to_be_right = [None, None, None, None, None]
@@ -30,20 +28,11 @@ def check_word(word):
 
 
 def main():
+    last_possible = possible
     possible.clear()
-    for let in string.ascii_uppercase:
-        for i in words[let]:
-            check_word(i)
-    print(possible)
-
-
+    for word in (five_letter_words if not last_possible else last_possible):
+        check_word(word)
 
 
 if __name__ == "__main__":
     main()
-
-# run()
-# print(possible)
-# print(len(possible))
-
-f.close()
