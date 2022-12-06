@@ -3,7 +3,6 @@ import random
 from english_words import english_words_lower_alpha_set
 
 five_letter_words = [word for word in english_words_lower_alpha_set if len(word) == 5]
-five_letter_words.append("woken")
 
 current_word = random.choice(five_letter_words)
 lettersIn = set()
